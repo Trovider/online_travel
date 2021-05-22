@@ -1,5 +1,22 @@
 from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
 
 def index(request):
-    return HttpResponse("안녕하세요 방구석 세계여행에 오신 것을 환영합니다")
+    return render(request, 'online_travel/select_country.html')
+
+
+def select_area(request):
+    return render(request, 'online_travel/select_area.html')
+
+
+def bookmark(request):
+    return render(request, 'online_travel/bookmark.html')
+
+
+def mypage(request):
+    return render(request, 'online_travel/mypage.html')
+
+
+
 

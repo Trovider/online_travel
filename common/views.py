@@ -15,21 +15,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('index')
+            return redirect('common:login')
     else:
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
-
-
-def select_country(request):
-    return render(request, 'common/select-country')
-
-def select_area(request):
-    return render(request, 'common/select-area')
-
-def bookmark(request):
-    return render(request, 'common/bookmark')
-
-def tourpage(request):
-    return render(request, 'common/tourpage')
-# ---------------------------------------------------------------------------- #
