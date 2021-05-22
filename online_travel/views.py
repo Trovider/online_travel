@@ -1,5 +1,12 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from .serializers import BookmarkSerializer
+from rest_framework import generics
+from .models import Bookmark
+
+
+class BookmarkView(generics.ListCreateAPIView):
+    queryset = Bookmark.objects.all()
+    serializer_class = BookmarkSerializer
 
 
 def index(request):
@@ -16,7 +23,6 @@ def bookmark(request):
 
 def mypage(request):
     return render(request, 'online_travel/mypage.html')
-
 
 
 
