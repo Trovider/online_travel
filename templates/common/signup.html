@@ -1,17 +1,28 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="container my-3">
-        <div class="row my-3">
-            <div class="col-4">
-                <h1>Sign up</h1>
-            </div>
-            <div class="col-8 text-right">
-                <span><a href="{% url 'common:login' %}">login</a></span>
-            </div>
+{% load static %}
+<!doctype html>
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+    <title>방구석 세계여행</title>
+</head>
+<body>
+{% csrf_token %}
+<div class="nav">
+    <a href="{% url 'main' %}"><img class="logo" src="{% static 'img/main_logo.png' %}" alt="My Image"></a>
+    <div class="title"><a href="{% url 'main' %}">방구석 세계여행</a></div>
+</div>
+<div class="wrap_login">
+    <div class="little_wrap">
+
+        <div class="font_login">
+            <div class="color">sign up</div>
         </div>
+         <div class="second">
         <form method="post" class="post-form">
             {% csrf_token %}
-            {% include "form_errors.html" %}
             <div class="form-group">
                 <label for="username">ID</label>
                 <br>
@@ -48,9 +59,15 @@
                     <option value="eorope">유럽</option>
                 </select>
             </div>
-            <br><br>
+             {% include "signup_errors.html" %}
+            <br>
             <button type="submit" class="btn btn-primary">Sign up
             </button>
         </form>
     </div>
-{% endblock %}
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

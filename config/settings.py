@@ -139,3 +139,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+from django.contrib.messages import constants as messages_constants
+
+MESSAGE_LEVEL = messages_constants.DEBUG
