@@ -1,31 +1,42 @@
-{% block content %}
-    <div class="container my-3">
-            <div class="col-4">
-                <h2>Login to your account</h2>
-                <h3>and get connected!</h3>
-            </div>
-        <br>
-        <form method="post" class="post-form" action="{% url 'common:login' %}">
-            {% csrf_token %}
-            {% include "form_errors.html" %}
-            <div class="form-group">
-                <input type="text" class="form-control" name="username" id="username"
-                       value="{{ form.username.value|default_if_none:'' }}" placeholder="ID">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" id="password"
-                       value="{{ form.password.value|default_if_none:'' }}" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary">LOGIN</button>
-        </form>
-        <div class="password error">
-            <span><a href="{% url 'common:signup' %}">Forgot your password?</a></span>
+{% load static %}
+<!doctype html>
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+    <title>방구석 세계여행</title>
+</head>
+<body>
+ <form method="post" class="post-form" action="{% url 'common:login' %}">
+        {% csrf_token %}
+<div class="nav">
+    <a href="{% url 'main' %}"><img class="logo" src="{% static 'img/main_logo.png' %}" alt="My Image"></a>
+    <div class="title"><a href="{% url 'main' %}">방구석 세계여행</a></div>
+</div>
+
+<div class="wrap_login">
+    <div class="little_wrap">
+        <div class="font_login"><div class="color">Login to your account</div><div>and get connected!</div></div>
+        <div class="form-group">
+            <input  type="text" class="form-control" name="username" id="username" placeholder="ID"
+                   value="{{ form.username.value|default_if_none:'' }}">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" id="password" placeholder="PASSWORD"
+                   value="{{ form.password.value|default_if_none:'' }}">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">LOGIN WITH GOOGLE</button>
-        <br><br>
-        <div class="col-8 text-right">
-            <span>New here? <a href="{% url 'common:signup' %}">sign up</a></span>
-        </div>
+        {% include "form_errors.html" %}
+        <br>
+        <button  type="submit">로그인</button>
+        <div class="forget_password">Forgot your password?</div>
+        <div class="sign_up">New here? <span><a style="color:#28B5B5" href="{% url 'common:signup' %}">sign up</a></span></div>
     </div>
-{% endblock %}
+</div>
+</form>
+
+</div>
+</body>
+</html>

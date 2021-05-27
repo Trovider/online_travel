@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <title>방구석 세계여행</title>
+</head>
+<body>
+<div class="nav">
+    <a href="{% url 'main' %}"><img class="logo" src="{% static 'img/main_logo.png' %}" alt="My Image"></a>
+    <div class="title"><a href="{% url 'main' %}">방구석 세계여행</a></div>
+    <a style="color:white" href="{% url 'common:signup' %}"> <div class="signup_btn">회원가입</div></a>
+    <a href="{% url 'common:login' %}"><div class="login_btn">로그인</div></a>
+</div>
+<div class="wrap_mainimg">
+    <img class="mainimg" src="{% static 'img/main_img.jpg' %}" alt="My Image">
+    <div class="img_text">"방구석 세계여행"</div>
+    <div class="text_app">방구석 세계 여행은 어느 나라 든 여행 할 수 있는 서비스로, <br>
+        지도에서 가보고 싶은 관광지를 선택하거나, 인기 명소를 추천 <br>
+        받을 수 있습니다. <br><br>
+
+        또한, 관광지를 선택하면 여행자들이 직접 찍은 사진과 여행자 <br>
+        시점 동영상을 제공하여 실감나는 여행을 연출합니다. <br><br>
+
+        이러한 서비스를 통해 여행을 가지 못했던 사람들에게 여행을 <br>
+        통해 느낄 수 있는 만족감과 행복을 느끼게 해줍니다.
+    </div>
+    <a style="color:white" href="{% url 'common:login' %}"><div class="btn_trip">여행하러 가기</div></a>
+</div>
+
+</body>
+</html>

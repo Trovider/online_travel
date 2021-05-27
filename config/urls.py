@@ -22,5 +22,6 @@ urlpatterns = [
     path('common/', include('common.urls')),
     path('admin/', admin.site.urls),
     path('online_travel/', include('online_travel.urls')),
-    path('', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
+    path('', auth_views.LoginView.as_view(template_name='main.html'), name='main'),
+    path('login', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
 ]
