@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>kithub example</title>
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Example description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+    <style>
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="map" class="map"></div>
+<script type="text/javascript">
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: 'https://xdworld.vworld.kr/2d/midnight/service/{z}/{x}/{y}.png'
+                })
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([126.978275264, 37.566642192]),
+            zoom: 7
+        })
+    });
+
+    // 행정구역 데이터 가져오기
+    var vectorSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: function(extent) {
+            var strUrl = 'http://localhost/geoserver/sqlite/wfs?service=' +
+                'WFS' +
+                '&version=2.0.0' +
+                '&request=GetFeature' +
+                '&typename=sqlite:ZONE_SIDO_Co2Intensity_auto_weekday_2016' +
+                '&outputFormat=application/json' +
+                '&srsname=EPSG:3857' +
+                '&bbox=' + extent.join(',') + ',EPSG:3857';
+            return strUrl;
+        },
+        strategy: ol.loadingstrategy.bbox
+    });
+
+    var vectorLayer = new ol.layer.Vector({
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: 'rgba(0, 0, 0)',
+                width: 2
+            }),
+            fill: new ol.style.Fill({
+                color: 'rgba(255,0,0,0.2)'
+            })
+        }),
+        source: vectorSource,
+        name: 'area'
+    });
+
+    //행정구역 레이어 추가
+    map.addLayer(vectorLayer);
+
+
+
+    // 각 행정구역 마우스 오버시 하이라이팅
+    // 마우스 오버시 스타일 지정
+    var selectPointerMove = new ol.interaction.Select({
+        condition: ol.events.condition.pointerMove,
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: 'white',
+                width: 2
+            }),
+            fill: new ol.style.Fill({
+                color: 'rgba(0,0,255,0.6)'
+            })
+        })
+    });
+    // interaction 추가
+    map.addInteraction(selectPointerMove);
+</script>
+</body></html>
