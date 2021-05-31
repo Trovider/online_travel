@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Box Selection</title>
-    <script src="https://unpkg.com/elm-pep"></script>
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
@@ -17,10 +16,21 @@
             height: 500px;
             width: 100%;
         }
+        .go {
+            font-family: 나눔스퀘어;
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            width: 240px;
+            height: 35px;
+            background-color: #28B5B5;
+            border: 2px solid #28B5B5;
+            margin-left: 80%;
+        }
     </style>
 </head>
 <body>
-<button id="info" onclick='selectArea()'>GO</button>
+<button id="info" class="go" onclick='selectCountry()'>GO</button>
 <div id="map" class="map"></div>
 <script>
 
@@ -88,8 +98,8 @@
         }
     });
 
-    function selectArea()  {
-         window.location.href = 'http://127.0.0.1:8000/online_travel/' + infoBox.innerHTML + '/';
+    function selectCountry()  {
+        window.location.href = 'http://127.0.0.1:8000/online_travel/' + infoBox.innerHTML + '/';
     }
 </script>
 </body>

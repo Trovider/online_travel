@@ -7,11 +7,19 @@
                 <h1>CHOOSE AREA</h1>
                 <h3>Choose the area you want to travel to.
                 </h3>
-
-                <div><h4>{{ country }}</h4>
-                    {% for a in area%}
-                        <h2>{{ a.spot_name }}</h2>
-                    {% endfor %}
+                {% if area.0.country_name == "South Korea" %}
+                    {{ area.0.country_name }}
+                {% elif area.0.country_name == "Japan" %}
+                    {{ area.0.country_name }}
+                {% elif area.0.country_name == "China" %}
+                    {{ area.0.country_name }}
+                {% endif %}
+                <div>
+                    <ul>
+                        {% for a in area %}
+                            <li><a href="./{{ a.area_name }}/">{{ a.area_name }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
