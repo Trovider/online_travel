@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from .models import Bookmark, Spot
+from parsed_data.models import BlogData
 
 
 def index(request):
@@ -12,8 +13,11 @@ def select_area(request, country):
 
 
 def recommend(request, country, area):
+    title_list = BlogData.objects.order_by('title')
     spot = get_list_or_404(Spot.objects.filter(area_name=area))
-    return render(request, 'online_travel/recommend.html', {'spot':spot})
+
+    context = {'spot' : spot, 'title_list': title_list}
+    return render(request, 'online_travel/recommend.html', context)
 
 
 def recommend_detail(request, country, area, spot):

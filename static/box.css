@@ -1,0 +1,52 @@
+.area_name{
+    margin: 20px;
+    margin-left: 100px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+.name_plus{
+    margin-bottom: 20px;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.div_ul{
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: gray 2px solid;
+    width: 1370px;
+
+}
+
+.div_li{
+
+    float: left;
+    width: 300px;
+    height: 250px;
+    border-color: #28B5B5;
+    align-content: center;
+    padding: 20px;
+
+
+
+}
+.div_title{
+    font-weight: bold;
+    text-align: left;
+    text-align: center;
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    box-shadow: 0px 4px 8px lightgrey;
+}
+
+.div_img{
+    width: 300px;
+    height: 200px;
+    align-content: center;
+
+}

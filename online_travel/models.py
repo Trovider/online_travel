@@ -19,6 +19,11 @@ class Video(models.Model):
     url = models.CharField(max_length=128, null=True)
 
 
+class BlogData(models.Model):
+    title = models.CharField(max_length=200)
+    link = models.URLField()
+
+
 class Livechat(models.Model):
     ip = models.IntegerField(primary_key=True)
     m = models.ForeignKey('Member', on_delete=models.CASCADE)

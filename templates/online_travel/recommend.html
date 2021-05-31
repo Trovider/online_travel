@@ -1,17 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'box.css' %}">
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>
 
     <div class="container my-3">
         <div class="row my-3">
             <div class="col-4">
-                <h1>{{ spot.0.area_name }}</h1>
-                <div>
-                    <ul>
-                        {% for s in spot %}
-                            <li><a href="./{{ s.spot_name }}/">{{ s.spot_name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                <div class="area_name">"{{ spot.0.area_name }}"</div>
+                <div class="name_plus">The place I want to travel is {{ spot.0.area_name }}</div>
+                    {% if title_list %}
+                        <ul class="div_ul">
+                            {% for title in title_list %}
+                             <li class="div_li">
+                                 <img class= "div_img" src="{{ title.link }}" alt="">
+                                 <div class="div_title">{{ title.title }}</div>
+
+
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
             </div>
         </div>
     </div>

@@ -12,3 +12,4 @@ admin.site.register(Spot)
 admin.site.register(Video)
 admin.site.register(Livechat)
 admin.site.register(Bookmark)
+
