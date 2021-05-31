@@ -6,6 +6,7 @@ from .models import Video
 from .models import Livechat
 from .models import Bookmark
 
+
 admin.site.register(Member)
 admin.site.register(Spot)
 admin.site.register(Video)

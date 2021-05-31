@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class="container my-3">
         <div class="row my-3">
             <div class="col-4">
@@ -7,8 +8,12 @@
                 <h3>Choose the area you want to travel to.
                 </h3>
 
+                <div><h4>{{ country }}</h4>
+                    {% for a in area%}
+                        <h2>{{ a.spot_name }}</h2>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-    {% include "area.html" %}
 {% endblock %}
