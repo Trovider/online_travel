@@ -22,10 +22,10 @@
                         <ul class="div_ul">
                             {% for title in title_list %}
                              <li class="div_li">
+                                 <a href="./{{ title.title }}/">
                                  <img class= "div_img" src="{{ title.link }}" alt="">
                                  <div class="div_title">{{ title.title }}</div>
-
-
+                                 </a>
                                 </li>
                             {% endfor %}
                         </ul>
