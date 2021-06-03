@@ -68,32 +68,3 @@ ul{
 .menu a:hover:after {
    transform: scaleX(1);/*a 속성에 hover시 after를 기존 크기로 변경*/
 }
-/*
-.btn{
-    float: right;
-    height: 40px;
-    color:black;
-    text-align: center;
-    margin-top: 14px;
-    margin-right: 120px;
-    line-height: 40px;
-    font-weight: bolder;
-
-}
-
-.btn_user{
-    float: right;
-    width: 120px;
-    height: 40px;
-    background-color: #28B5B5;
-    text-align: center;
-    line-height: 40px;
-    margin-top: 14px;
-    margin-right: 8%;
-    color: white !important;
-    font-weight: bold;
-    border:1px solid #28B5B5;
-
-}
-
- */
