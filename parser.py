@@ -1,15 +1,17 @@
 from urllib.request import urlretrieve
 from selenium import webdriver
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+
 import django
 django.setup()
 
 from parsed_data.models import BlogData
 
 
+def parse_blog(spot):
 
-def parse_blog():
     path = 'C:\\Users\\LG\\Desktop\\chrome\\chromedriver.exe'
     driver = webdriver.Chrome(path)
 
