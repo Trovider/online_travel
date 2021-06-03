@@ -9,7 +9,6 @@ django.setup()
 
 from parsed_data.models import BlogData
 
-
 def parse_blog(spot):
     print(spot)
 
@@ -77,5 +76,3 @@ def parse_blog(spot):
         BlogData(title=t, link=l).save()
 
     return data
-
-
