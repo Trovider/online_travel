@@ -17,7 +17,7 @@ class Spot(models.Model):
 
 class Video(models.Model):
     spot_name = models.ForeignKey('Spot', db_column='spot_name', on_delete=models.CASCADE)
-    url = models.CharField(max_length=128, null=True)
+    url = models.CharField(max_length=128, null=True,  blank=True)
 
 
 class BlogData(models.Model):

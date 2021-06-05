@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_list_or_404
-from .models import Spot
+from .models import Spot, Video
 from .data import parse_blog
 
 
@@ -22,7 +22,8 @@ def recommend(request, country, area):
 
 def recommend_detail(request, country, area, spot):
     spot_detail = get_list_or_404(Spot.objects.filter(spot_name=spot))
-    return render(request, 'online_travel/recommend_detail.html', {'spot_detail': spot_detail})
+    video = Video.objects.order_by('spot_name')
+    return render(request, 'online_travel/recommend_detail.html', {'spot_detail': spot_detail, 'video': video})
 
 
 def bookmark(request):
