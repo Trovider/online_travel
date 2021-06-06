@@ -1,8 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'box.css' %}">
+    </head>
+    <body>
+    <div class="box"></div>
+    </body>
+    </html>
     <div>
         <h1>Bookmark</h1>
     </div>
+    <ul class="div_ul">
+        {% for b in bm %}
+
+            <li class="div_li">
+                <a href="../{{ b.spot_name.country_name }}/{{ b.spot_name.area_name }}/{{ b.spot_name.spot_name }}/">
+                    <img class= "div_img" src="{{ b.spot_name.link }}" alt="">
+                    <div class="div_title">{{ b.spot_name.spot_name }}</div>
+                    <p>{{ b.memo }}</p>
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
 
 {% endblock %}

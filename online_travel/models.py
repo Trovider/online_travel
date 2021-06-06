@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Member(models.Model):
@@ -33,6 +34,6 @@ class Livechat(models.Model):
 
 class Bookmark(models.Model):
     spot_name = models.ForeignKey('Spot', db_column='spot_name', on_delete=models.CASCADE)
-    m = models.ForeignKey('Member', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     memo = models.CharField(max_length=128, null=True)
 
