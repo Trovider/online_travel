@@ -17,6 +17,7 @@ from django.conf.global_settings import STATICFILES_DIRS
 from django.urls import reverse_lazy
 
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 

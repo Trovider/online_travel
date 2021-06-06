@@ -1,0 +1,25 @@
+{% extends 'taxi/base.html' %}
+
+
+<h2>회원정보 수정</h2>
+
+<div class="id_box">
+  <h3>ID : {{ request.user.username }}</h3>
+</div>
+
+<form method="post" action="{% url 'taxi:edit_user' %}" class="form-horizontal">
+  <div class="input-group">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+
+    <input type="button" value="취소" onClick="javascript:history.go(-1);">
+    <input type="submit" value="수정" />
+    <button type="button" name="change_password" onClick="location.href='{% url 'online_travel:change_password'%}'">비밀번호 변경</button>
+
+    {% if request.user.profile.email_confirmed == False %}
+    <button type="button" name="resend_mail" onClick="location.href='{% url 'taxi:resend_mail'%}'">인증메일 다시 보내기</button>
+    {% endif %}
+  </div>
+
+</form>

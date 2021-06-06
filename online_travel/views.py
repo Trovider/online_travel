@@ -1,5 +1,12 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_list_or_404
 from .models import Spot, Video
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.shortcuts import render, redirect
+from .forms import CustomPasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 from .data import parse_blog
 
 
@@ -32,3 +39,8 @@ def bookmark(request):
 
 def mypage(request):
     return render(request, 'online_travel/mypage.html')
+
+
+def password_edit_view(request):
+
+    return render(request, 'online_travel/profile_password.html')
