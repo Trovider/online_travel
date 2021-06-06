@@ -1,12 +1,131 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container my-3">
-        <div class="row my-3">
-            <div class="col-4">
-                <h1>CHOOSE AREA</h1>
-                <h3>Choose the area you want to travel to.
-                </h3>
-            </div>
-        </div>
+
+
+    <div>
+        <h1>CHOOSE AREA</h1>
+        <h3>Choose the area you want to travel to.
+        </h3>
     </div>
+
+    <div id="map" style="height: 500px;"></div>
+    <script>
+        var country_name = "{{ area.0.country_name }}";
+        function initMap() {
+            if (country_name === "South Korea"){
+                var curLatLng = {
+                    lat: 36.589522,
+                    lng: 128.071503
+                };
+
+                var locations = [
+                    ['<a href="./서울/"><h3>서울</h3></a>', 37.5545168, 126.974237],
+                    ['<a href="./부산/"><h3>부산</h3></a>', 34.9999083, 128.9384361],
+                    ['<a href="./제주도/"><h3>제주도</h3></a>', 33.431441, 126.3],
+                    ['<a href="./전주/"><h3>전주</h3></a>', 35.8242238, 127.1479532],
+                    ['<a href="./강릉/"><h3>강릉</h3></a>', 37.678366, 128.728302],
+                ]
+
+                var num = 7;
+            }
+            else if (country_name === "Japan"){
+                var curLatLng = {
+                    lat: 37.5624,
+                    lng: 138.4518
+                };
+
+                var locations = [
+                    ['<a href="./도쿄/"><h3>도쿄</h3></a>', 35.6894875, 139.6917064],
+                ]
+
+                var num = 6;
+            }
+            else if (country_name === "China"){
+                var curLatLng = {
+                    lat: 35.9035,
+                    lng: 105.388
+                };
+
+                var locations = [
+                    ['<a href="./베이징/"><h3>베이징</h3></a>', 39.9035, 116.388],
+                ]
+
+                var num = 5;
+            }
+            else if (country_name === "United States of America"){
+                var curLatLng = {
+                    lat: 39.94206,
+                    lng: -101.67370
+                };
+
+                var locations = [
+                    ['<a href="./뉴욕/"><h3>뉴욕</h3></a>', 40.97459, -74.07047],
+                ]
+
+                var num = 5;
+            }
+            else if (country_name === "Russia"){
+                var curLatLng = {
+                    lat: 62.68162,
+                    lng: 94.66963
+                };
+
+                var locations = [
+                    ['<a href="./모스크바/"><h3>모스크바</h3></a>', 55.86156, 37.61584],
+                ]
+
+                var num = 4;
+            }
+            else if (country_name === "Canada"){
+                var curLatLng = {
+                    lat: 60.19716,
+                    lng: -111.76290
+                };
+
+                var locations = [
+                    ['<a href=".//"><h3>모스크바</h3></a>', 50.05138, -123.06783],
+                ]
+
+                var num = 4;
+            }
+            // Creates a map object.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: curLatLng,
+                scrollwheel: false,
+                zoom: num
+            });
+            var infowindow = new google.maps.InfoWindow();
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+
+                    //마커의 위치
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+
+                    //마커를 표시할 지도
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        //html로 표시될 인포 윈도우의 내용
+                        infowindow.setContent(locations[i][0]);
+                        //인포윈도우가 표시될 위치
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+
+                if (marker) {
+                    marker.addListener('click', function() {
+                        //중심 위치를 클릭된 마커의 위치로 변경
+                        map.setCenter(this.getPosition());
+                    });
+                }
+            }
+        }
+    </script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0zOCXPPSmClmtS7xEUWLqgX07tYncsx8&callback=initMap"
+            async defer></script>
 {% endblock %}
