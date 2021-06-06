@@ -1,0 +1,43 @@
+a{
+    color: #28B5B5;
+}
+h1{
+    margin:30px 50px;
+}
+
+.box_name{
+    margin-left: 30px;
+}
+.user_img{
+   display: block;
+    margin: 50px auto 0px;
+    width: 120px;
+}
+.user_name{
+    text-align: center;
+    font-size: 25px;
+    margin: 10px 0px 10px 0px;
+    font-weight: bold;
+}
+.user_box{
+    margin: 50px auto 0px auto;
+    display: block;
+    text-align: center;
+    border: lightgray 2px solid;
+    width: 500px;
+    border-radius: 10px;
+}
+.list{
+    font-weight: bold;
+    color: #28B5B5;
+    display: block;
+    margin: auto;
+    width: 450px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: lightgrey 2px solid;
+}
+.list:last-child {
+    border:none;
+
+}
