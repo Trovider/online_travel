@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from .models import Spot, Video, Bookmark
+from django.contrib.auth.models import User
 from .data import parse_blog
 
 
@@ -24,6 +25,10 @@ def recommend_detail(request, country, area, spot):
     spot_detail = get_list_or_404(Spot.objects.filter(spot_name=spot))
     video = Video.objects.order_by('spot_name')
     bm = Bookmark.objects.order_by('spot_name')
+    if request.method == "POST":
+        spot_name = spot
+        user = User
+        memo = ''
     return render(request, 'online_travel/recommend_detail.html', {'spot_detail': spot_detail, 'video': video, 'bm': bm})
 
 
