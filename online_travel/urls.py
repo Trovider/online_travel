@@ -12,6 +12,5 @@ urlpatterns = [
     path('<country>/', views.select_area),
     path('<country>/<area>/', views.recommend),
     path('<country>/<area>/<spot>/', views.recommend_detail),
-    path('password/', views.password_edit_view, name='password_edit'),
 
 ]

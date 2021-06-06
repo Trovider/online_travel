@@ -15,7 +15,7 @@
         <div class="user_name">{{ user.username }}</div>
         <div class="user_box">
 
-        <a href="{% url 'online_travel:password_edit'%}"><div class="list">비밀번호 변경</div></a>
+        <a href="{% url 'common:profile_password'%}"><div class="list">비밀번호 변경</div></a>
         <div class="list">관심여행지 변경</div>
         {% if user.is_authenticated %}
             <div class="list"><a class="nav-link" href="{% url 'common:logout' %}">로그아웃</a></div>
