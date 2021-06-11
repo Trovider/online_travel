@@ -16,7 +16,7 @@ def select_area(request, country):
 def recommend(request, country, area):
     title_list = Spot.objects.order_by('spot_name')
     spot = get_list_or_404(Spot.objects.filter(area_name=area))
-    #parse_blog(country, area) #db에 저장됐으면 빼고 돌려도 됨
+    parse_blog(country, area)
     context = {'spot': spot, 'title_list': title_list}
     return render(request, 'online_travel/recommend.html', context)
 

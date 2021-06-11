@@ -14,16 +14,17 @@ class Spot(models.Model):
     country_name = models.CharField(max_length=64)
     area_name = models.CharField(max_length=64)
     link = models.URLField(null=True)
+    content = models.TextField(null=True)
+
+
+class Img_url(models.Model):
+    img_url = models.ForeignKey(Spot, on_delete=models.CASCADE)
+    content_2 = models.TextField(null=True)
 
 
 class Video(models.Model):
     spot_name = models.ForeignKey('Spot', db_column='spot_name', on_delete=models.CASCADE)
     url = models.CharField(max_length=128, null=True,  blank=True)
-
-
-class BlogData(models.Model):
-    title = models.CharField(max_length=200)
-    link = models.URLField()
 
 
 class Livechat(models.Model):
