@@ -18,20 +18,15 @@
     margin-right: auto;
     border-bottom: gray 2px solid;
     width: 1370px;
-
 }
 
 .div_li{
-
     float: left;
     width: 300px;
     height: 250px;
     border-color: #28B5B5;
     align-content: center;
     padding: 20px;
-
-
-
 }
 .div_title{
     font-weight: bold;

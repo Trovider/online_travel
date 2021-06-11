@@ -1,4 +1,23 @@
-.color {
-    color:#28B5B5;
+.detail_img {
+    float: left;
+    width:30%;
+    box-sizing: border-box;
+}
+
+.detail_txt{
+    margin-top: 20px;
+    float: right;
+    width:32%;
+    box-sizing: content-box;
+}
+
+.bookmark{
+    float: right;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+}
+h1{
+    color: #28B5B5;
 }
 

@@ -1,16 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>
-        <h1>{{ spot_detail.spot_name }}</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <button>북마크</button>
-    </form>
+    {% load static %}
+    <style>
+        .detail_img {
+            float: left;
+            width:30%;
+            box-sizing: border-box;
+        }
+
+        .detail_txt{
+            margin-top: 20px;
+            float: right;
+            width:25%;
+            box-sizing: content-box;
+        }
+
+        .bookmark{
+            float: right;
+            width:5%;
+            box-sizing: border-box;
+            border: none;
+            background-color: transparent;
+        }
+        h1{
+            color: #28B5B5;
+        }
+    </style>
+    <div class="detail_img">
         {% for v in video %}
-            {% if spot_detail.0 == v.spot_name %}
-                <iframe width="854" height="480" src="{{ v.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% if spot_detail == v.spot_name %}
+                <iframe width="1000" height="650" src="{{ v.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             {% endif %}
         {% endfor %}
+    </div>
+        <form method="POST">
+            {% csrf_token %}
+            {% if bookmark %}
+                <button class="bookmark"><h1>★</h1></button>
+            {% else %}
+                <button class="bookmark"><h1>☆</h1></button>
+            {% endif %}
+        </form>
+    <div class="detail_txt">
+        <h1>{{ spot_detail.spot_name }}</h1>
     </div>
 
 {% endblock %}

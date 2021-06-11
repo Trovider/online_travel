@@ -19,7 +19,7 @@ def select_area(request, country):
 
 def recommend(request, country, area):
     title_list = Spot.objects.order_by('spot_name')
-    spot = get_list_or_404(Spot.objects.filter(area_name=area))
+    spot = Spot.objects.filter(area_name=area)
     #parse_blog(country, area) #db에 저장됐으면 빼고 돌려도 됨
     context = {'spot': spot, 'title_list': title_list}
     return render(request, 'online_travel/recommend.html', context)
@@ -28,6 +28,7 @@ def recommend(request, country, area):
 def recommend_detail(request, country, area, spot):
     spot_detail = Spot.objects.get(spot_name=spot)
     video = Video.objects.order_by('spot_name')
+    bookmark = Bookmark.objects.filter(spot_name=spot, user=request.user)
     if request.method == 'POST':
         try:
             is_bookmarked = Bookmark.objects.get(spot_name=spot, user=request.user)
@@ -38,21 +39,8 @@ def recommend_detail(request, country, area, spot):
         else:
             model_instance = Bookmark(spot_name=spot_detail, user=request.user, memo='입력하세요')
             model_instance.save()
-    return render(request, 'online_travel/recommend_detail.html', {'spot_detail': spot_detail, 'video': video})
+    return render(request, 'online_travel/recommend_detail.html', {'spot_detail': spot_detail, 'video': video, 'bookmark': bookmark})
 
-
-# def click_bookmark(request, country, area, spot):
-#     spot_detail = Spot.objects.get(spot_name=spot)
-#     try:
-#         is_bookmarked = Bookmark.objects.get(spot_name=spot, user=request.user)
-#     except:
-#         is_bookmarked = None
-#     if is_bookmarked:
-#         is_bookmarked.delete()
-#     else:
-#         model_instance = Bookmark(spot_name=spot_detail, user=request.user, memo='입력하세요')
-#         model_instance.save()
-#     return render(request, 'online_travel/recommend_detail.html', {'spot_detail': spot_detail, 'is_bookmarked': is_bookmarked})
 
 def bookmark_page(request):
     bookmark = Bookmark.objects.filter(user=request.user)
