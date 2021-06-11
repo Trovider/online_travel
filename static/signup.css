@@ -4,7 +4,6 @@ body {
     height: 100%;
     font-family: 나눔스퀘어;
     font-weight: bold;
-
 }
 a { text-decoration: none; color: black; }
 a:visited { text-decoration: none; }
@@ -86,7 +85,7 @@ btn{
 input[type=password] {
     width: 230px;
     height: 30px;
-   /*margin-top: 15px;*/
+    /*margin-top: 15px;*/
     color:black;
 }
 input[type=text]{
@@ -95,7 +94,7 @@ input[type=text]{
     font-weight: bold;
     width: 230px;
     height: 30px;
-     /*margin-top: 15px;*/
+    /*margin-top: 15px;*/
     color:black;
 }
 button[type=submit]{
@@ -115,9 +114,10 @@ select{
     font-weight: bold;
     width: 230px;
     height: 30px;
-     /*margin-top: 15px;*/
+    /*margin-top: 15px;*/
     color:black;
     border: 2px solid #28B5B5;
 }
+
 
 

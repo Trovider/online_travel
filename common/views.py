@@ -6,12 +6,14 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
+from online_travel.models import Spot
 
 
 def signup(request):
     """
     계정생성
     """
+    spot = Spot.objects.all().values('country_name').distinct()
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
@@ -23,9 +25,7 @@ def signup(request):
             return redirect('common:login')
     else:
         form = UserForm()
-    return render(request, 'common/signup.html', {'form': form})
-
-
+    return render(request, 'common/signup.html', {'form': form, 'spot':spot})
 
 
 def change_password(request):
@@ -43,3 +43,8 @@ def change_password(request):
     return render(request, 'common/change_password.html', {
         'form': form
     })
+
+
+def change_interest(request):
+    spot = Spot.objects.all().values('country_name').distinct()
+    return render(request, 'common/change_interest.html', {'spot':spot})

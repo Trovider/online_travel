@@ -18,6 +18,19 @@
     background-color: transparent;
 }
 h1{
+    margin-top: 30px;
+    margin-left: 50px;
     color: #28B5B5;
 }
+
+h3{
+    margin-left:50px;
+    color: #4D4747;
+}
+
+h2{
+    margin: 10px;
+    font-family: 나눔스퀘어;
+}
+
 

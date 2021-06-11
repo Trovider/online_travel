@@ -17,13 +17,10 @@
 
         .bookmark{
             float: right;
-            width:5%;
+            width:10%;
             box-sizing: border-box;
             border: none;
             background-color: transparent;
-        }
-        h1{
-            color: #28B5B5;
         }
     </style>
     <div class="detail_img">
@@ -33,14 +30,14 @@
             {% endif %}
         {% endfor %}
     </div>
-        <form method="POST">
-            {% csrf_token %}
-            {% if bookmark %}
-                <button class="bookmark"><h1>★</h1></button>
-            {% else %}
-                <button class="bookmark"><h1>☆</h1></button>
-            {% endif %}
-        </form>
+    <form method="POST">
+        {% csrf_token %}
+        {% if bookmark %}
+            <button class="bookmark"><h1>★</h1></button>
+        {% else %}
+            <button class="bookmark"><h1>☆</h1></button>
+        {% endif %}
+    </form>
     <div class="detail_txt">
         <h1>{{ spot_detail.spot_name }}</h1>
     </div>

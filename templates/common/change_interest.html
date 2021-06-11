@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+        <title>방구석 세계여행</title>
+    </head>
+    <div style="margin-top: 100px">
+        <center>
+            <h2 style="text-align:center;">관심여행지 변경</h2>
+            <br>
+            <select name="DOF">
+                <option value="none">=====선택=====</option>
+                {% for s in spot %}
+                    <option value="{{ s.country_name }}">{{ s.country_name }}</option>
+                {% endfor %}
+            </select>
+            <form method="post" style="text-align:center;">
+                {% csrf_token %}
+                <br>
+                <button type="submit">Save changes</button>
+            </form>
+            {% if error_message %}
+                <div>{{ error_message }}</div>
+            {% endif %}
+        </center>
+    </div>
+{% endblock %}

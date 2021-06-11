@@ -13,7 +13,7 @@ def index(request):
 
 
 def select_area(request, country):
-    area = get_list_or_404(Spot.objects.filter(country_name=country).values('area_name', 'country_name').distinct())
+    area = Spot.objects.filter(country_name=country).values('area_name', 'country_name').distinct()
     return render(request, 'online_travel/select_area.html', {'area': area})
 
 
