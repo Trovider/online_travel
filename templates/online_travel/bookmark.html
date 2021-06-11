@@ -16,8 +16,7 @@
         <h1>Bookmark</h1>
     </div>
     <ul class="div_ul">
-        {% for b in bm %}
-
+        {% for b in bookmark %}
             <li class="div_li">
                 <a href="../{{ b.spot_name.country_name }}/{{ b.spot_name.area_name }}/{{ b.spot_name.spot_name }}/">
                     <img class= "div_img" src="{{ b.spot_name.link }}" alt="">
@@ -25,7 +24,6 @@
                     <p>{{ b.memo }}</p>
                 </a>
             </li>
-
         {% endfor %}
     </ul>
 

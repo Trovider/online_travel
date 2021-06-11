@@ -1,17 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
     <div>
-
-        <h1>{{ spot_detail.0.spot_name }}
-        {% for b in bm %}
-            {% if spot_detail.0 == b.spot_name %}
-                ★
-            {% else %}
-                ☆
-            {% endif %}
-        {% endfor %}
-        </h1>
+        <h1>{{ spot_detail.spot_name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button>북마크</button>
+    </form>
         {% for v in video %}
             {% if spot_detail.0 == v.spot_name %}
                 <iframe width="854" height="480" src="{{ v.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

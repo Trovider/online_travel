@@ -14,6 +14,8 @@ class Spot(models.Model):
     country_name = models.CharField(max_length=64)
     area_name = models.CharField(max_length=64)
     link = models.URLField(null=True)
+    def __str__(self):
+        return self.spot_name
 
 
 class Video(models.Model):
