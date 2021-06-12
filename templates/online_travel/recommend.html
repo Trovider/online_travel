@@ -9,12 +9,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'box.css' %}">
     </head>
     <body>
-    <div class="box"></div>
-    </body>
-    </html>
-
-
-    <div>
+    <div class="box">
         <div class="area_name">"{{ spot.0.area_name }}"</div>
         <div class="name_plus">The place I want to travel is {{ spot.0.area_name }}</div>
         {% if title_list %}
@@ -32,5 +27,6 @@
             </ul>
         {% endif %}
     </div>
-
+    </body>
+    </html>
 {% endblock %}
