@@ -14,6 +14,7 @@ class Spot(models.Model):
     country_name = models.CharField(max_length=64)
     area_name = models.CharField(max_length=64)
     link = models.URLField(null=True)
+    description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='description')
     def __str__(self):
         return self.spot_name
 
@@ -34,3 +35,7 @@ class Bookmark(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     memo = models.CharField(max_length=128, null=True)
 
+
+class Photo(models.Model):
+    spot_name = models.ForeignKey('Spot', db_column='spot_name', on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='img/', blank=True, null=True)

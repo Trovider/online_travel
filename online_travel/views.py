@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-from .data import parse_blog
+from .data import parse_blog, detail_save
 
 
 def index(request):
@@ -27,6 +27,7 @@ def recommend(request, country, area):
 
 def recommend_detail(request, country, area, spot):
     spot_detail = Spot.objects.get(spot_name=spot)
+    #detail_save(spot_detail)
     video = Video.objects.order_by('spot_name')
     bookmark = Bookmark.objects.filter(spot_name=spot, user=request.user)
     if request.method == 'POST':

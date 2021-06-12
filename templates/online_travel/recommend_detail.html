@@ -10,24 +10,23 @@
         }
 
         .detail_txt{
-            margin-top: 20px;
-            float: right;
-            width:25%;
+            position: absolute;
+            float: left;
+            width:30%;
+            margin-left:69%;
             box-sizing: content-box;
         }
 
         .bookmark{
-            float: right;
-            width:10%;
             box-sizing: border-box;
             border: None #ffffff;
             outline: #ffffff None;
             background-color: transparent;
         }
 
-        .bm{
-            border: None #ffffff;
-            outline: #ffffff None;
+        button.bookmark:focus{
+            border: none;
+            outline:none;
         }
 
     </style>
@@ -46,15 +45,18 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ spot_detail.link }}" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ spot_detail.link }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ spot_detail.link }}" alt="Third slide">
-            </div>
+            {% for photo in spot_detail.photo_set.all %}
+                {{ spot_detail.photo_set.0.image }}
+                {% if photo.id == 1 %}
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ photo.image }}" alt="One">
+                    </div>
+                {% else %}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ photo.image }}" alt="Two">
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -66,16 +68,18 @@
         </a>
     </div>
 
-    <form method="POST" class="bm">
-        {% csrf_token %}
-        {% if bookmark %}
-            <button class="bookmark"><h1>★</h1></button>
-        {% else %}
-            <button class="bookmark"><h1>☆</h1></button>
-        {% endif %}
-    </form>
     <div class="detail_txt">
+        <form method="POST">
+            {% csrf_token %}
+            {% if bookmark %}
+                <button class="bookmark"><h1>★</h1></button>
+            {% else %}
+                <button class="bookmark"><h1>☆</h1></button>
+            {% endif %}
+        </form>
         <h1>{{ spot_detail.spot_name }}</h1>
+        <br>
+        <p style="word-wrap:break-word;">{{ spot_detail.description|linebreaks }}</p>
     </div>
 
 {% endblock %}
