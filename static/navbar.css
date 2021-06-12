@@ -21,10 +21,10 @@ a:hover, a:active { text-decoration: none; }
 .wrap_mainimg{
     z-index:1;
 }
-.logo{
-    width: 70px;
+.icon{
+    width: 40px;    height: 40px;
+    margin-top: 15px;
     margin-left: 5%;
-    padding-top: 10px;
     box-sizing: border-box;
     float: left;
 }
