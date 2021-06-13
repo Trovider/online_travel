@@ -1,6 +1,4 @@
-from django.conf.urls import url
 from django.urls import path, include
-import parser
 from . import views
 
 app_name = 'online_travel'

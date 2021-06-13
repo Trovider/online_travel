@@ -7,8 +7,6 @@ from .models import Livechat
 from .models import Bookmark, Photo
 
 
-admin.site.register(Member)
-
 admin.site.register(Video)
 admin.site.register(Livechat)
 admin.site.register(Bookmark)

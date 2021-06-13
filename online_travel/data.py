@@ -157,26 +157,6 @@ def detail_save(spot):
         choose = driver.find_element_by_xpath(choose_path)
         choose.click()
 
-        """
-        c=0
-        if (i<2):
-            c=4
-        elif (i<4):
-            c=5
-        elif (i<6):
-            c=7
-        elif (i<8):
-    
-        try:
-            con1 = '/html/body/c-wiz[2]/div/div[2]/div/c-wiz/div/div/div[1]/div[2]/c-wiz/div/div/div/div/div[4]/div/c-wiz/div/div[3]/div[1]/div[2]/div'
-            content = driver.find_element_by_xpath(con1)
-        except:
-            con2 = ""
-            content = driver.find_element_by_xpath(con2)
-        
-        print(content.text)
-        """
-
         b = 0
         if (i < 4):
             b = 4

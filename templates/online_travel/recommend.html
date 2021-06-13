@@ -12,20 +12,20 @@
     <div class="box">
         <div class="area_name">"{{ spot.0.area_name }}"</div>
         <div class="name_plus">The place I want to travel is {{ spot.0.area_name }}</div>
-        {% if title_list %}
-            <ul class="div_ul">
-                {% for title in title_list %}
-                    {% if title.area_name == spot.0.area_name %}
-                        <li class="div_li">
-                            <a href="./{{ title.spot_name }}/">
-                                <img class= "div_img" src="{{ title.link }}" alt="">
-                                <div class="div_title">{{ title.spot_name }}</div>
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        {% endif %}
+            {% if title_list %}
+                <ul class="div_ul" >
+                    {% for title in title_list %}
+                        {% if title.area_name == spot.0.area_name %}
+                            <li class="div_li">
+                                <a href="./{{ title.spot_name }}/">
+                                    <img class= "div_img" src="{{ title.link }}" alt="">
+                                    <div class="div_title">{{ title.spot_name }}</div>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
     </div>
     </body>
     </html>
