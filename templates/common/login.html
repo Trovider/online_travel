@@ -5,7 +5,6 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
     <title>방구석 세계여행</title>
 </head>
@@ -13,14 +12,13 @@
 <form method="post" class="post-form" action="{% url 'common:login' %}">
     {% csrf_token %}
     <div class="nav">
-        <a href="{% url 'online_travel:index' %}" style="margin-left: 5%;"><img class="icon" src="{% static 'img/main_icon.png' %}" alt="My Image"></a>
+        <a href="{% url 'main' %}"><img class="icon" src="{% static 'img/main_icon.png' %}" alt="My Image"></a>
         <div class="title"><a href="{% url 'main' %}">방구석 세계여행</a></div>
     </div>
 
     <div class="wrap_login">
         <div class="little_wrap">
             <div class="font_login"><div class="color">Login to your account</div><div>and get connected!</div></div>
-            <center>
             <div class="form-group">
                 <input  type="text" class="form-control" name="username" id="username" placeholder="ID"
                         value="{{ form.username.value|default_if_none:'' }}">
@@ -28,12 +26,12 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" id="password" placeholder="PASSWORD"
                        value="{{ form.password.value|default_if_none:'' }}">
-            </div></center>
+            </div>
             <br>
             {% include "form_errors.html" %}
             <br>
             <button  type="submit">로그인</button>
-            <div class="forget_password"><a href="{% url 'common:change_password' %}">Forgot your password?</a></div>
+            <div class="forget_password">Forgot your password?</div>
             <div class="sign_up">New here? <span><a style="color:#28B5B5" href="{% url 'common:signup' %}">sign up</a></span></div>
         </div>
     </div>

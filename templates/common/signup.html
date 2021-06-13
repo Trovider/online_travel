@@ -5,14 +5,13 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
     <title>방구석 세계여행</title>
 </head>
 <body>
 {% csrf_token %}
 <div class="nav">
-    <a href="{% url 'online_travel:index' %}" style="margin-left: 5%;"><img class="icon" src="{% static 'img/main_icon.png' %}" alt="My Image"></a>
+    <a href="{% url 'main' %}"><img class="icon" src="{% static 'img/main_icon.png' %}" alt="My Image"></a>
     <div class="title"><a href="{% url 'main' %}">방구석 세계여행</a></div>
 </div>
 <div class="wrap_login">
@@ -53,9 +52,11 @@
                     <br>
                     <select name="DOF">
                         <option value="none">=====선택=====</option>
-                        {% for s in spot %}
-                            <option value="{{ s.country_name }}">{{ s.country_name }}</option>
-                        {% endfor %}
+                        <option value="korea">대한민국</option>
+                        <option value="US">미국</option>
+                        <option value="china">중국</option>
+                        <option value="japan">일본</option>
+                        <option value="eorope">유럽</option>
                     </select>
                 </div>
                 {% include "signup_errors.html" %}
