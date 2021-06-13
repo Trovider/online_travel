@@ -14,9 +14,18 @@ class Spot(models.Model):
     country_name = models.CharField(max_length=64)
     area_name = models.CharField(max_length=64)
     link = models.URLField(null=True)
+
     description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='description')
     def __str__(self):
         return self.spot_name
+
+    content = models.TextField(null=True)
+
+
+class Img_url(models.Model):
+    img_url = models.ForeignKey(Spot, on_delete=models.CASCADE)
+    content_2 = models.TextField(null=True)
+
 
 
 class Video(models.Model):

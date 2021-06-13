@@ -12,7 +12,7 @@
 <form method="post" class="post-form" action="{% url 'common:login' %}">
     {% csrf_token %}
     <div class="nav">
-        <a href="{% url 'main' %}"><img class="icon" src="{% static 'img/main_icon.png' %}" alt="My Image"></a>
+        <a href="{% url 'main' %}"><img class="icon" style="width: 40px; height: 40px; margin-top: 15px; margin-left: 5%; box-sizing: border-box;float: left;" src="{% static 'img/main_icon.png' %}" alt="My Image"></a>
         <div class="title"><a href="{% url 'main' %}">방구석 세계여행</a></div>
     </div>
 
