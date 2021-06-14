@@ -27,7 +27,7 @@ def recommend(request, country, area):
 
 def recommend_detail(request, country, area, spot):
     spot_detail = Spot.objects.get(spot_name=spot)
-    #detail_save(spot_detail)
+    #gdetail_save(spot_detail)
     video = Video.objects.filter(spot_name=spot)
     bookmark = Bookmark.objects.filter(spot_name=spot, user=request.user)
     if request.method == 'POST':
